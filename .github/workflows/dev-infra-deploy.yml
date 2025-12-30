@@ -31,9 +31,19 @@ jobs:
 
     - name: Terraform Plan (Target RG)
       working-directory: Enviroment-Infra/dev
-      run: terraform plan -var-file="terraform.tfvars"
-      env:
-        TF_LOG: DEBUG
+    - name: Terraform Plan
+      run: terraform plan \
+          -var="resource_group=my-rg" \
+          -var="virtual_network=my-vnet" \
+          -var="subnet=my-subnet" \
+          -var="bastion=my-bastion" \
+          -var="sql_server=my-sql-server" \
+          -var="sql_database=my-sql-db" \
+          -var="storage_account=mystorageacct" \
+          -var="storage_container=tfstate" \
+          -var="public_ip=my-public-ip" \
+          -var="key_vault=my-key-vault"
+
 
     # - name: Terraform plan
     #   working-directory: Enviroment-Infra/dev
