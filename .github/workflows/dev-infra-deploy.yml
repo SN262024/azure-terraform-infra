@@ -20,9 +20,11 @@ jobs:
         terraform_version: 1.14.3
 
     - name: Terraform Init
+      working-directory: Environment-Infra/dev
       run: terraform init
 
     - name: Terraform plan
+      working-directory: Environment-Infra/dev
       run: terraform plan
 
       
