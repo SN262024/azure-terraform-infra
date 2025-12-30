@@ -26,17 +26,20 @@ jobs:
         terraform_version: 1.14.3
 
     - name: Terraform Init
-      run: terraform init
       working-directory: Environment-Infra/dev
+      run: terraform init
+     
     
 
     - name: Terraform Validate
-      run: terraform validate 
       working-directory: Environment-Infra/dev
+      run: terraform validate 
+    
 
     - name: Terraform Plan
-      run: terraform plan -input=false
       working-directory: Environment-Infra/dev
+      run: terraform plan -input=false
+      
      
 
 
