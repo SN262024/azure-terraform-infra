@@ -1,0 +1,54 @@
+name: Terraform-Infra Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v6.0.1
+
+    - name: Show folder structure
+      run: |
+          pwd
+          ls -l
+          ls -l Environment-Infra || true
+
+    - name: HashiCorp - Setup Terraform
+      uses: hashicorp/setup-terraform@v3.1.2
+      with:
+        terraform_version: 1.14.3
+
+    - name: Terraform Init
+      working-directory: Environment-Infra/dev
+      run: terraform init
+     
+    
+
+    - name: Terraform Validate
+      working-directory: Environment-Infra/dev
+      run: terraform validate 
+    
+
+    - name: Terraform Plan
+      working-directory: Environment-Infra/dev
+      run: terraform plan -input=false
+      
+     
+
+
+    # - name: Terraform plan
+    #   working-directory: Enviroment-Infra/dev
+    #   run: terraform plan
+
+      
+    
+      
+    
+    
