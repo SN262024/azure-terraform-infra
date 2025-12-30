@@ -30,6 +30,7 @@ jobs:
       run: terraform init
 
     - name: Terraform Plan (Target RG)
+      working-directory: Enviroment-Infra/dev
       run: terraform plan -target=module.azurerm_resource_group
       env:
         TF_LOG: DEBUG
