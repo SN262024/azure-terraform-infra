@@ -29,9 +29,8 @@ jobs:
       working-directory: Enviroment-Infra/dev
       run: terraform init
 
-    - name: Terraform Plan (Target RG)
-      working-directory: Enviroment-Infra/dev
     - name: Terraform Plan
+      working-directory: Enviroment-Infra/dev
       run: terraform plan \
           -var="resource_group=my-rg" \
           -var="virtual_network=my-vnet" \
