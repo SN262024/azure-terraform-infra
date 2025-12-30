@@ -29,9 +29,14 @@ jobs:
       working-directory: Enviroment-Infra/dev
       run: terraform init
 
-    - name: Terraform plan
-      working-directory: Enviroment-Infra/dev
-      run: terraform plan
+    - name: Terraform Plan (Target RG)
+      run: terraform plan -target=module.azurerm_resource_group
+      env:
+        TF_LOG: DEBUG
+
+    # - name: Terraform plan
+    #   working-directory: Enviroment-Infra/dev
+    #   run: terraform plan
 
       
     
