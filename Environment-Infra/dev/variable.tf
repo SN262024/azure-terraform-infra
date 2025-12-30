@@ -1,21 +1,9 @@
-# variable "resource_group" {}
-# variable "virtual_network" {}
-# variable "subnet" {}
-# variable "storage_container" {}
-# variable "storage_account" {}
-# variable "virtual_machine" {}
-# variable "sql_server" {}
-# variable "sql_database" {}
-# variable "public_ip" {}
-# variable "bastion" {}
-# variable "key_vault" {}
-
 variable "resource_group" {
-  type = map(object({
-    rg_name  = string
-    location = string
-  }))
-}
+    type = map(object({
+        rg_name  = string
+        location = string
+    }))
+    }
 
 variable "virtual_network" {
   type = map(object({
@@ -34,6 +22,8 @@ variable "subnet" {
     rg_name          = string
   }))
 }
+
+
 variable "bastion" {
   type = map(object({
     name       = string
@@ -45,6 +35,7 @@ variable "bastion" {
 }
 
 
+
 variable "virtual_machine" {
   type = map(object({
     vm_name        = string
@@ -54,8 +45,10 @@ variable "virtual_machine" {
     admin_username = string
     admin_password = string
   }))
-  sensitive = true
+  
 }
+
+
 variable "storage_account" {
   type = map(object({
     name     = string
@@ -71,6 +64,7 @@ variable "storage_container" {
   }))
 }
 
+
 variable "sql_server" {
   type = map(object({
     server_name    = string
@@ -79,7 +73,7 @@ variable "sql_server" {
     admin_username = string
     admin_password = string
   }))
-  sensitive = true
+
 }
 
 variable "sql_database" {
@@ -89,6 +83,7 @@ variable "sql_database" {
   }))
 }
 
+
 variable "public_ip" {
   type = map(object({
     name     = string
@@ -96,6 +91,7 @@ variable "public_ip" {
     location = string
   }))
 }
+
 
 variable "key_vault" {
   type = map(object({
