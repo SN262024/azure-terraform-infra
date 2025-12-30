@@ -35,7 +35,7 @@ jobs:
       working-directory: Enviroment-Infra/dev
 
     - name: Terraform Plan
-      run: terraform plan
+      run: terraform plan -input=false
       working-directory: Enviroment-Infra/dev
      
 
