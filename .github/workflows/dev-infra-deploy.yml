@@ -14,6 +14,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v6.0.1
 
+    - name: Show folder structure
+      run: |
+          pwd
+          ls -l
+          ls -l Environment-Infra || true
+
     - name: HashiCorp - Setup Terraform
       uses: hashicorp/setup-terraform@v3.1.2
       with:
