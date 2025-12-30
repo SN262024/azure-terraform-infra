@@ -43,6 +43,8 @@ variable "bastion" {
     pip_key    = string
   }))
 }
+
+
 variable "virtual_machine" {
   type = map(object({
     vm_name        = string
