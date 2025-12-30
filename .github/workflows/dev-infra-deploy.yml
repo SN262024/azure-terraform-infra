@@ -1,0 +1,32 @@
+name: Terraform-Infra Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v6.0.1
+
+    - name: HashiCorp - Setup Terraform
+      uses: hashicorp/setup-terraform@v3.1.2
+      with:
+        terraform_version: 1.14.3
+
+    - name: Terraform Init
+      run: terraform init
+
+    - name: Terraform plan
+      run: terraform plan
+
+      
+    
+      
+    
+    
